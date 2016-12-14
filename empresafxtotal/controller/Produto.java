@@ -5,8 +5,6 @@
  */
 package empresafxtotal.controller;
 
-import empresafxtotal.model.ProdutoDAO;
-
 /**
  *
  * @author Matheus

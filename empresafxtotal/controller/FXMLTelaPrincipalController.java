@@ -47,4 +47,8 @@ public class FXMLTelaPrincipalController implements Initializable {
         AnchorPane a = FXMLLoader.load(getClass().getResource("/empresafxtotal/view/FXMLMantemProduto.fxml"));
         anchorPaneTelas.getChildren().setAll(a);
     }
+    public void abraTelaMantemVenda() throws IOException{
+        AnchorPane a = FXMLLoader.load(getClass().getResource("/empresafxtotal/view/FXMLMantemVenda.fxml"));
+        anchorPaneTelas.getChildren().setAll(a);
+    }
 }

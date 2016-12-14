@@ -7,9 +7,12 @@ package empresafxtotal;
 
 import empresafxtotal.controller.Cliente;
 import empresafxtotal.controller.Funcionario;
-import empresafxtotal.controller.Produto;
 import empresafxtotal.controller.Venda;
 import empresafxtotal.controller.VendaItem;
+import empresafxtotal.model.FuncionarioDAO;
+import empresafxtotal.model.VendaDAO;
+import empresafxtotal.model.VendaItemDAO;
+import java.util.ArrayList;
 import java.util.Date;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -27,12 +30,20 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         
-        Cliente c = new Cliente();
-        Funcionario f = new Funcionario();
-        Venda v = new Venda(44, new Date(), c, f);
-        v.addItem(new VendaItem(5, 3.5, new Produto()));
+//        Cliente c = new Cliente();
+//        Funcionario f = new Funcionario();
+//        Venda v = new Venda(44, new Date(), c, f);
+//        v.addItem(new VendaItem(5, 3.5, new Produto()));
         
-        
+
+//        Cliente c = new Cliente("Nome", "CPF");
+//        Funcionario vendedor = FuncionarioDAO.retreave(10);
+//        ArrayList<VendaItem> teste = VendaItemDAO.retreaveAll();
+//        for (VendaItem e : teste) {
+//            System.out.println(e);
+//        }
+//        Venda v = new Venda(1, new Date(), c, vendedor, teste);
+//        VendaDAO.create(v);
         
         
         

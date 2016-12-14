@@ -6,7 +6,6 @@
 package empresafxtotal.controller;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  *
@@ -14,7 +13,7 @@ import java.util.Date;
  */
 public class Venda {
     private int numero;
-    private Date data;
+    private String data;
     private Cliente cliente;
     private Funcionario vendedor;
     private ArrayList<VendaItem> itens;
@@ -24,14 +23,14 @@ public class Venda {
     public Venda() {
     }
 
-    public Venda(int numero, Date data, Cliente cliente, Funcionario vendedor) {
+    public Venda(int numero, String data, Cliente cliente, Funcionario vendedor) {
         this.numero = numero;
         this.data = data;
         this.cliente = cliente;
         this.vendedor = vendedor;
     }
 
-     public Venda(int pkVenda, int numero, Date data, Cliente cliente, Funcionario vendedor, ArrayList<VendaItem> itens) {
+     public Venda(int pkVenda, int numero, String data, Cliente cliente, Funcionario vendedor, ArrayList<VendaItem> itens) {
         this.pkVenda = pkVenda;
         this.numero = numero;
         this.data = data;
@@ -40,7 +39,7 @@ public class Venda {
         this.itens = itens;
     }
      
-    public Venda(int numero, Date data, Cliente cliente, Funcionario vendedor, ArrayList<VendaItem> itens) {
+    public Venda(int numero, String data, Cliente cliente, Funcionario vendedor, ArrayList<VendaItem> itens) {
         this.numero = numero;
         this.data = data;
         this.cliente = cliente;
@@ -48,7 +47,7 @@ public class Venda {
         this.itens = itens;
     }
 
-    public Venda(int numero, Date data, Funcionario vendedor, ArrayList<VendaItem> itens, int pkVenda) {
+    public Venda(int pkVenda, int numero, String data, Funcionario vendedor, ArrayList<VendaItem> itens) {
         this.numero = numero;
         this.data = data;
         this.vendedor = vendedor;
@@ -67,7 +66,7 @@ public class Venda {
         return numero;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
@@ -91,7 +90,7 @@ public class Venda {
         this.numero = numero;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 

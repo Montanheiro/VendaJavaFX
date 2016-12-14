@@ -60,7 +60,7 @@ public class VendaDAO {
             Funcionario f = FuncionarioDAO.retreave(rs.getInt("fk_vendedor"));
 
             return new Venda(rs.getInt("pk_venda"), rs.getInt("numero"),
-                    rs.getDate("datas"), c, f, i);
+                    rs.getString("datas"), c, f, i);
         } catch (SQLException ex) {
             Logger.getLogger(VendaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -87,7 +87,7 @@ public class VendaDAO {
                 Funcionario f = FuncionarioDAO.retreave(rs.getInt("fk_vendedor"));
 
                 cs.add(new Venda(rs.getInt("pk_venda"), rs.getInt("numero"),
-                        (rs.getDate("datas")), c, f, i));
+                        (rs.getString("datas")), c, f, i));
             }
 
             return cs;
