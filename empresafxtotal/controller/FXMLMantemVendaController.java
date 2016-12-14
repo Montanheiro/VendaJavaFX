@@ -4,6 +4,7 @@ import empresafxtotal.model.ClienteDAO;
 import empresafxtotal.model.FuncionarioDAO;
 import empresafxtotal.model.ProdutoDAO;
 import empresafxtotal.model.VendaDAO;
+import java.awt.event.KeyEvent;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -16,9 +17,11 @@ import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import static javafx.collections.FXCollections.observableList;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -72,6 +75,7 @@ public class FXMLMantemVendaController implements Initializable {
     
     @FXML
     private Label somaTotal;
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -169,8 +173,10 @@ public class FXMLMantemVendaController implements Initializable {
         somaTotal.setText("R$ " + total);
     }
     
-    private void deletarItem(){
-        ObservableList.remove
+    @FXML
+    void deletarItem(){
+        
+        listaProdutos.remove(tabela.getSelectionModel().getSelectedItem());
     }
 
     @FXML
