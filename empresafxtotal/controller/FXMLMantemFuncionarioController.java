@@ -8,8 +8,11 @@ package empresafxtotal.controller;
 import empresafxtotal.model.CargoDAO;
 import empresafxtotal.model.FuncionarioDAO;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
@@ -89,10 +92,16 @@ public class FXMLMantemFuncionarioController implements Initializable {
 "Tunisia", "Turkey", "Turkmenistan", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States",
 "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe");
     
-    List<Funcionario> l = FuncionarioDAO.retreaveAll();
-    comboBoxFuncionarios.getItems().addAll(l);
+    List<Funcionario> l;
+        try {
+            l = FuncionarioDAO.retreaveAll();
+            comboBoxFuncionarios.getItems().addAll(l);
           List<Cargo> carg = CargoDAO.retreaveAll();
         comboBoxCargo.getItems().addAll(carg);
+        } catch (SQLException ex) {
+            Logger.getLogger(FXMLMantemFuncionarioController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
 }
     public void load(){
         f = comboBoxFuncionarios.getValue();
@@ -120,7 +129,7 @@ public class FXMLMantemFuncionarioController implements Initializable {
         comboBoxEstado.getSelectionModel().clearSelection();
         comboBoxPais.getSelectionModel().clearSelection();
     }
-    public void salvar(){
+    public void salvar() throws SQLException{
         boolean insert = false;
 
         if (f == null) {
