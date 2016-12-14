@@ -36,7 +36,7 @@ public class VendaItemDAO {
             ResultSet rs = stm.executeQuery(sql);
             ArrayList<VendaItem> cs = new ArrayList<>();
             while (rs.next()) {
-                cs.add(new VendaItem(rs.getInt("fk_venda"), rs.getInt("qtd"), rs.getDouble("valor_unitario"),
+                cs.add(new VendaItem(rs.getInt("fk_venda"), rs.getInt("qtd"), rs.getFloat("valor_unitario"),
                         ProdutoDAO.retreave(rs.getInt("fk_produto")), rs.getInt("fk_venda")));
             }
 
@@ -53,7 +53,7 @@ public class VendaItemDAO {
             ResultSet rs = stm.executeQuery(sql);
             ArrayList<VendaItem> cs = new ArrayList<>();
             while (rs.next()) {
-                cs.add(new VendaItem(rs.getInt("pk_venda"), rs.getInt("qtd"), rs.getDouble("valor_unitario"),
+                cs.add(new VendaItem(rs.getInt("pk_venda"), rs.getInt("qtd"), rs.getFloat("valor_unitario"),
                         ProdutoDAO.retreave(rs.getInt("fk_produto")), rs.getInt("fk_venda")));
             }
 
