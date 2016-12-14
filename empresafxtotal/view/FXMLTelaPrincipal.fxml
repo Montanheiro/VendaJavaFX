@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="394.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="empresafxtotal.controller.FXMLTelaPrincipalController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="empresafxtotal.controller.FXMLTelaPrincipalController">
    <children>
       <MenuBar>
          <menus>
@@ -27,6 +27,6 @@
             </Menu>
          </menus>
       </MenuBar>
-      <AnchorPane fx:id="anchorPaneTelas" prefHeight="200.0" prefWidth="200.0" />
+      <AnchorPane fx:id="anchorPaneTelas" prefHeight="361.0" prefWidth="600.0" />
    </children>
 </VBox>

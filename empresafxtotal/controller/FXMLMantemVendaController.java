@@ -5,11 +5,12 @@ import empresafxtotal.model.FuncionarioDAO;
 import empresafxtotal.model.ProdutoDAO;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
@@ -36,18 +37,34 @@ public class FXMLMantemVendaController implements Initializable {
     @FXML
     private ComboBox<Cliente> comboBoxCliente;
 
+        
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        System.out.println("ABRIU CARARIO");
+        System.out.println("ABRIU VENDA");
         
-        try {
-            List<Cliente> clientes = ClienteDAO.retreaveAll();
-            comboBoxCliente.getItems().addAll(clientes);
-        } catch (SQLException ex) {
-            Logger.getLogger(FXMLMantemVendaController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-             
+        //FORÇANDO A ACEITAR SOMENTE NUMEROS
+        textFieldQuantidade.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d*/.?")) {
+                    textFieldQuantidade.setText(newValue.replaceAll("[^\\d/.?]", ""));
+                }
+            }
+        });
+        textFieldPreco.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d*/.?")) {
+                    textFieldPreco.setText(newValue.replaceAll("[^\\d/.?]", ""));
+                }
+            }
+        });
+        
+        
+        
+        //PUXANDO VENDEDORES PRA TELA
         try {
             List<Funcionario> vendedores = FuncionarioDAO.retreaveAllVendedores();
             comboBoxVendedor.getItems().addAll(vendedores);
@@ -55,14 +72,21 @@ public class FXMLMantemVendaController implements Initializable {
             Logger.getLogger(FXMLMantemVendaController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        //PUXANDO CLIENTES PRA TELA
+        try {
+            List<Cliente> clientes = ClienteDAO.retreaveAll();
+            comboBoxCliente.getItems().addAll(clientes);
+        } catch (SQLException ex) {
+            Logger.getLogger(FXMLMantemVendaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //PUXANDO PRODUTOS PRA TELA
         try {
             List<Produto> produtos = ProdutoDAO.retreaveAll();
             comboBoxProdutos.getItems().addAll(produtos);
         } catch (SQLException ex) {
             Logger.getLogger(FXMLMantemVendaController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
     }
     
     @FXML

@@ -44,7 +44,6 @@
         </panes>
       </Accordion>
       <Button layoutX="534.0" layoutY="361.0" mnemonicParsing="false" onAction="#salvar" text="Enviar" />
-      <Button layoutX="466.0" layoutY="361.0" mnemonicParsing="false" text="Cancelar" />
-      <Button layoutX="406.0" layoutY="361.0" mnemonicParsing="false" onAction="#limpaTela" text="Limpar" />
+      <Button layoutX="443.0" layoutY="361.0" mnemonicParsing="false" onAction="#limpaTela" text="Cancelar" />
    </children>
 </AnchorPane>
