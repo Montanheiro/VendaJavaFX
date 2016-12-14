@@ -10,7 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -24,7 +23,7 @@ public class VendaDAO {
         Statement stm =  BancoDados.createConnection().createStatement();
 
             String sql = "INSERT INTO vendas (fk_cliente, fk_vendedor, numero, datas) VALUES ("+v.getCliente().getPk_cliente()+", " +
-                    v.getVendedor().getPk_funcionario()+", "+(retreaveNumeroVenda()+1)+", "+v.getData()+")";
+                    v.getVendedor().getPk_funcionario()+", "+(retreaveNumeroVenda()+1)+", '"+v.getData()+"')";
             System.out.printf(sql);
         stm.execute(sql, Statement.RETURN_GENERATED_KEYS);
         ResultSet rs = stm.getGeneratedKeys();

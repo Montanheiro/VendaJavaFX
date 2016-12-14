@@ -20,6 +20,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -61,9 +62,16 @@ public class FXMLMantemVendaController implements Initializable {
     @FXML
     private TableColumn<VendaItem, String> colunaProduto;
     
-    final ObservableList<VendaItem> listaProdutos = FXCollections.observableArrayList(); 
-        
+    ObservableList<VendaItem> listaProdutos = FXCollections.observableArrayList();
     
+    @FXML
+    private TextField numeroDaVenda;
+    
+    @FXML
+    private TextField dataVenda;
+    
+    @FXML
+    private Label somaTotal;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -118,6 +126,19 @@ public class FXMLMantemVendaController implements Initializable {
         
         tabela.setItems(null);
         tabela.setItems(listaProdutos);
+        
+        //Pega a data e já converte no tipo que o banco entende e coloca na tela
+        Date data = new Date();
+        SimpleDateFormat tipoData = new SimpleDateFormat("yyyy-MM-dd");
+        String dataOk = tipoData.format(data);
+        dataVenda.setText(dataOk);
+        
+        //Vai nas vendas p
+        try { 
+            numeroDaVenda.setText(String.valueOf(VendaDAO.retreaveNumeroVenda()+1));
+        } catch (SQLException ex) {
+            Logger.getLogger(FXMLMantemVendaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @FXML
@@ -131,7 +152,25 @@ public class FXMLMantemVendaController implements Initializable {
         textFieldQuantidade.clear();
         textFieldPreco.clear();
         
+        System.out.println(listaProdutos);
+        
+        somarTotal();
+        
         System.out.println("Lançou: " + vi);
+        
+   
+    }
+    
+    private void somarTotal(){
+        double total = 0;
+        
+        total = listaProdutos.stream().map((vi2) -> vi2.getQtd()*vi2.getValorUnitario()).reduce(total, (accumulator, _item) -> accumulator + _item);
+        
+        somaTotal.setText("R$ " + total);
+    }
+    
+    private void deletarItem(){
+        ObservableList.remove
     }
 
     @FXML
@@ -141,7 +180,7 @@ public class FXMLMantemVendaController implements Initializable {
         if(vi == null){
             throw new Exception("Venda sem produtos");
         }    
-
+      
         //pega os produtos da lista e passa pra um Array de VendasItens
         ArrayList<VendaItem> itens = new ArrayList<>(listaProdutos);
         
@@ -150,19 +189,16 @@ public class FXMLMantemVendaController implements Initializable {
         SimpleDateFormat tipoData = new SimpleDateFormat("yyyy-MM-dd");
         String dataOk = tipoData.format(data);
         
-        System.out.println("Cliente: " + comboBoxCliente.getValue());
+        //Cria a venda
+        v = new Venda();
         v.setCliente(comboBoxCliente.getValue());
         v.setData(dataOk);
         v.setItens(itens);
         v.setVendedor(comboBoxVendedor.getValue());
        
-        try {
-            VendaDAO.create(v);
-        } catch (Exception ex) {
-            System.out.println(ex.toString());
-            //Logger.getLogger(FXMLMantemVendaController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       
+        VendaDAO.create(v);
+        limpaTela();
+        
         System.out.println("Salvou: " + v);
     }
 
@@ -174,7 +210,9 @@ public class FXMLMantemVendaController implements Initializable {
         comboBoxProdutos.valueProperty().set(null);
         textFieldQuantidade.clear();
         textFieldPreco.clear();
-        tabela.setItems(null);
+        somaTotal.setText("");
+        tabela.setItems(listaProdutos);
+        listaProdutos.clear();
         vi = null;
         
         System.out.println("Cancelou a venda");

@@ -16,34 +16,40 @@
 
 <AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="415.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="empresafxtotal.controller.FXMLMantemVendaController">
    <children>
-      <Accordion prefHeight="358.0" prefWidth="623.0" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <panes>
-          <TitledPane animated="false" prefHeight="350.0" prefWidth="623.0" text="Venda">
-               <content>
-                  <AnchorPane prefHeight="320.0" prefWidth="621.0">
-                     <children>
-                        <ComboBox fx:id="comboBoxVendedor" layoutX="6.0" layoutY="11.0" prefHeight="25.0" prefWidth="291.0" promptText="Vendedor" />
-                        <ComboBox fx:id="comboBoxCliente" layoutX="306.0" layoutY="11.0" prefHeight="25.0" prefWidth="288.0" promptText="Cliente" />
-                        <ComboBox fx:id="comboBoxProdutos" layoutX="6.0" layoutY="44.0" prefHeight="25.0" prefWidth="223.0" promptText="Produtos" />
-                        <TextField fx:id="textFieldQuantidade" layoutX="274.0" layoutY="44.0" prefHeight="25.0" prefWidth="75.0" />
-                        <Text layoutX="245.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qtd" />
-                        <TableView fx:id="tabela" layoutX="6.0" layoutY="82.0" prefHeight="226.0" prefWidth="592.0">
-                          <columns>
-                            <TableColumn fx:id="colunaQtd" prefWidth="75.0" text="Qtd" />
-                            <TableColumn fx:id="colunaProduto" minWidth="0.0" prefWidth="392.0" text="Produto" />
-                              <TableColumn fx:id="colunaPreco" prefWidth="123.0" text="Preço" />
-                          </columns>
-                        </TableView>
-                        <TextField fx:id="textFieldPreco" layoutX="404.0" layoutY="44.0" prefHeight="25.0" prefWidth="120.0" />
-                        <Text layoutX="365.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preço" />
-                        <Button layoutX="536.0" layoutY="44.0" mnemonicParsing="false" onAction="#lancar" text="Lançar" />
-                     </children>
-                  </AnchorPane>
-               </content>
-            </TitledPane>
-        </panes>
-      </Accordion>
+      <AnchorPane prefHeight="320.0" prefWidth="621.0">
+         <children>
+            <ComboBox fx:id="comboBoxVendedor" layoutX="6.0" layoutY="38.0" prefHeight="25.0" prefWidth="291.0" promptText="Vendedor" />
+            <ComboBox fx:id="comboBoxCliente" layoutX="307.0" layoutY="38.0" prefHeight="25.0" prefWidth="284.0" promptText="Cliente" />
+            <ComboBox fx:id="comboBoxProdutos" layoutX="6.0" layoutY="71.0" prefHeight="25.0" prefWidth="223.0" promptText="Produtos" />
+            <TextField fx:id="numeroDaVenda" editable="false" layoutX="80.0" layoutY="8.0" prefHeight="25.0" prefWidth="75.0" />
+            <Text layoutX="245.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qtd" />
+            <TableView fx:id="tabela" layoutX="4.0" layoutY="108.0" prefHeight="233.0" prefWidth="586.0">
+              <columns>
+                <TableColumn fx:id="colunaQtd" prefWidth="75.0" text="Qtd" />
+                <TableColumn fx:id="colunaProduto" minWidth="0.0" prefWidth="411.0" text="Produto" />
+                  <TableColumn fx:id="colunaPreco" prefWidth="95.0" text="Preço" />
+              </columns>
+            </TableView>
+            <TextField fx:id="textFieldPreco" layoutX="401.0" layoutY="71.0" prefHeight="25.0" prefWidth="120.0" />
+            <Text layoutX="362.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preço" />
+            <Button layoutX="528.0" layoutY="71.0" mnemonicParsing="false" onAction="#lancar" text="Lançar" />
+            <Text layoutX="14.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Venda nº" />
+            <Text layoutX="175.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data" />
+            <TextField fx:id="dataVenda" editable="false" layoutX="212.0" layoutY="8.0" />
+            <TextField fx:id="textFieldQuantidade" layoutX="276.0" layoutY="71.0" prefHeight="25.0" prefWidth="76.0" />
+         </children>
+      </AnchorPane>
       <Button layoutX="534.0" layoutY="361.0" mnemonicParsing="false" onAction="#salvar" text="Enviar" />
       <Button layoutX="443.0" layoutY="361.0" mnemonicParsing="false" onAction="#limpaTela" text="Cancelar" />
+      <Label fx:id="somaTotal" layoutX="183.0" layoutY="358.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Text layoutX="31.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor Total:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
