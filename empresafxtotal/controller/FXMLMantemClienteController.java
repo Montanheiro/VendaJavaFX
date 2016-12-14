@@ -6,11 +6,12 @@
 package empresafxtotal.controller;
 
 import empresafxtotal.model.ClienteDAO;
-import empresafxtotal.model.EnderecoDAO;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
@@ -84,8 +85,14 @@ public class FXMLMantemClienteController implements Initializable {
 "Tunisia", "Turkey", "Turkmenistan", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States",
 "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe");
         
-        List<Cliente> l = ClienteDAO.retreaveAll();
-        comboBoxClientes.getItems().addAll(l);
+ 
+      try {
+          List<Cliente> l = ClienteDAO.retreaveAll();
+          comboBoxClientes.getItems().addAll(l);
+      } catch (SQLException ex) {
+          Logger.getLogger(FXMLMantemClienteController.class.getName()).log(Level.SEVERE, null, ex);
+      }
+        
     }    
     public void load(){
         c = comboBoxClientes.getValue();
