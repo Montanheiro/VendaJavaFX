@@ -11,7 +11,7 @@ package empresafxtotal.controller;
  */
 public class VendaItem {
     private int qtd;
-    private double valorUnitario;
+    private Float valorUnitario;
     private Produto produto;
     
     private int fkVenda;
@@ -20,14 +20,20 @@ public class VendaItem {
     public VendaItem() {
     }
 
-    public VendaItem(int qtd, double valorUnitario, Produto produto, int fkVenda) {
+    public VendaItem(int qtd, Float valorUnitario, Produto produto) {
+        this.qtd = qtd;
+        this.valorUnitario = valorUnitario;
+        this.produto = produto;
+    }
+    
+    public VendaItem(int qtd, Float valorUnitario, Produto produto, int fkVenda) {
         this.qtd = qtd;
         this.valorUnitario = valorUnitario;
         this.produto = produto;
         this.fkVenda = fkVenda;
     }
 
-    public VendaItem(int pkVendaItem, int qtd, double valorUnitario, Produto produto, int fkVenda) {
+    public VendaItem(int pkVendaItem, int qtd, Float valorUnitario, Produto produto, int fkVenda) {
         this.pkVendaItem = pkVendaItem;
         this.qtd = qtd;
         this.valorUnitario = valorUnitario;
@@ -47,7 +53,7 @@ public class VendaItem {
         return valorUnitario;
     }
 
-    public void setValorUnitario(double valorUnitario) {
+    public void setValorUnitario(Float valorUnitario) {
         this.valorUnitario = valorUnitario;
     }
 

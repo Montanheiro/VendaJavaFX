@@ -27,11 +27,11 @@
                         <ComboBox fx:id="comboBoxProdutos" layoutX="6.0" layoutY="44.0" prefHeight="25.0" prefWidth="223.0" promptText="Produtos" />
                         <TextField fx:id="textFieldQuantidade" layoutX="274.0" layoutY="44.0" prefHeight="25.0" prefWidth="75.0" />
                         <Text layoutX="245.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qtd" />
-                        <TableView layoutX="6.0" layoutY="82.0" prefHeight="226.0" prefWidth="592.0">
+                        <TableView fx:id="tabela" layoutX="6.0" layoutY="82.0" prefHeight="226.0" prefWidth="592.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" text="Qtd" />
-                            <TableColumn minWidth="0.0" prefWidth="392.0" text="Produto" />
-                              <TableColumn prefWidth="123.0" text="Preço" />
+                            <TableColumn fx:id="colunaQtd" prefWidth="75.0" text="Qtd" />
+                            <TableColumn fx:id="colunaProduto" minWidth="0.0" prefWidth="392.0" text="Produto" />
+                              <TableColumn fx:id="colunaPreco" prefWidth="123.0" text="Preço" />
                           </columns>
                         </TableView>
                         <TextField fx:id="textFieldPreco" layoutX="404.0" layoutY="44.0" prefHeight="25.0" prefWidth="120.0" />

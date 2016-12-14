@@ -11,13 +11,21 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 public class FXMLMantemVendaController implements Initializable {
+    
+    Venda v;
+    VendaItem vi;
 
     @FXML
     private AnchorPane anchorPane;
@@ -36,7 +44,20 @@ public class FXMLMantemVendaController implements Initializable {
 
     @FXML
     private ComboBox<Cliente> comboBoxCliente;
+    
+    @FXML
+    private TableView tabela;
 
+    @FXML
+    private TableColumn<VendaItem, Float> colunaPreco;
+
+    @FXML
+    private TableColumn<VendaItem, Integer> colunaQtd;
+
+    @FXML
+    private TableColumn<VendaItem, String> colunaProduto;
+    
+    final ObservableList<VendaItem> listaProdutos = FXCollections.observableArrayList(); 
         
     
     
@@ -44,7 +65,7 @@ public class FXMLMantemVendaController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         System.out.println("ABRIU VENDA");
         
-        //FORÇANDO A ACEITAR SOMENTE NUMEROS
+        //FORÇANDO A ACEITAR SOMENTE NUMEROS EM QTD E PREÇO
         textFieldQuantidade.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -61,9 +82,7 @@ public class FXMLMantemVendaController implements Initializable {
                 }
             }
         });
-        
-        
-        
+               
         //PUXANDO VENDEDORES PRA TELA
         try {
             List<Funcionario> vendedores = FuncionarioDAO.retreaveAllVendedores();
@@ -87,11 +106,28 @@ public class FXMLMantemVendaController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(FXMLMantemVendaController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        //CRIANDO TABELA DE PRODUTOS
+        colunaQtd.setCellValueFactory(new PropertyValueFactory<>("qtd"));
+        colunaPreco.setCellValueFactory(new PropertyValueFactory<>("valorUnitario"));
+        colunaProduto.setCellValueFactory(new PropertyValueFactory<>("produto"));
+        
+        tabela.setItems(null);
+        tabela.setItems(listaProdutos);
     }
     
     @FXML
     void lancar() {
-        System.out.println("lançou");
+        //Envia para a lista de produtos
+        vi = new VendaItem(Integer.parseInt(textFieldQuantidade.getText()),Float.parseFloat(textFieldPreco.getText()),comboBoxProdutos.getValue());
+        listaProdutos.add(vi);
+        
+        //Limpa os campos usados para inserir um novo produto
+        comboBoxProdutos.valueProperty().set(null);
+        textFieldQuantidade.clear();
+        textFieldPreco.clear();
+        
+        System.out.println("Lançou: " + vi);
     }
 
     @FXML
@@ -101,7 +137,16 @@ public class FXMLMantemVendaController implements Initializable {
 
     @FXML
     void limpaTela() {
-        System.out.println("limpou");
+        
+        comboBoxVendedor.valueProperty().set(null);
+        comboBoxCliente.valueProperty().set(null);
+        comboBoxProdutos.valueProperty().set(null);
+        textFieldQuantidade.clear();
+        textFieldPreco.clear();
+        tabela.setItems(null);
+        vi = null;
+        
+        System.out.println("Cancelou a venda");
     }
 
 }
