@@ -3,8 +3,12 @@ package empresafxtotal.controller;
 import empresafxtotal.model.ClienteDAO;
 import empresafxtotal.model.FuncionarioDAO;
 import empresafxtotal.model.ProdutoDAO;
+import empresafxtotal.model.VendaDAO;
 import java.net.URL;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -131,8 +135,35 @@ public class FXMLMantemVendaController implements Initializable {
     }
 
     @FXML
-    void salvar() {
-        System.out.println("salvou");
+    void salvar() throws Exception {
+        
+        //Confere se a venda tem produtos
+        if(vi == null){
+            throw new Exception("Venda sem produtos");
+        }    
+
+        //pega os produtos da lista e passa pra um Array de VendasItens
+        ArrayList<VendaItem> itens = new ArrayList<>(listaProdutos);
+        
+        //Pega a data e já converte no tipo que o banco entende
+        Date data = new Date();
+        SimpleDateFormat tipoData = new SimpleDateFormat("yyyy-MM-dd");
+        String dataOk = tipoData.format(data);
+        
+        System.out.println("Cliente: " + comboBoxCliente.getValue());
+        v.setCliente(comboBoxCliente.getValue());
+        v.setData(dataOk);
+        v.setItens(itens);
+        v.setVendedor(comboBoxVendedor.getValue());
+       
+        try {
+            VendaDAO.create(v);
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+            //Logger.getLogger(FXMLMantemVendaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+        System.out.println("Salvou: " + v);
     }
 
     @FXML

@@ -24,7 +24,7 @@ public class VendaDAO {
         Statement stm =  BancoDados.createConnection().createStatement();
 
             String sql = "INSERT INTO vendas (fk_cliente, fk_vendedor, numero, datas) VALUES ("+v.getCliente().getPk_cliente()+", " +
-                    v.getVendedor().getPk_funcionario()+", "+(retreaveNumeroVenda()+1)+", '"+new Date()+"')";
+                    v.getVendedor().getPk_funcionario()+", "+(retreaveNumeroVenda()+1)+", "+v.getData()+")";
             System.out.printf(sql);
         stm.execute(sql, Statement.RETURN_GENERATED_KEYS);
         ResultSet rs = stm.getGeneratedKeys();
