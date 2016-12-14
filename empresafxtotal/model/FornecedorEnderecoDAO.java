@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package empresafxtotal.model;
 
 import empresafxtotal.controller.FornecedorEndereco;
@@ -18,11 +13,6 @@ public class FornecedorEnderecoDAO {
     public static int create(FornecedorEndereco forneEnd) {
         try {
             Statement stm = BancoDados.createConnection().createStatement();
-            //INSERT INTO public.clientes_enderecos(
-            //pk_enderenco, fk_cliente, logradouro, bairro, cidade, estado, 
-            //pais, cep)
-            //VALUES (?, ?, ?, ?, ?, ?, 
-            //      ?, ?);
 
             String sql = "insert into fornecedores_enderecos (fk_fornecedor,logradouro,bairro,cidade,estado,pais,cep) values('" + forneEnd.getFk_fornecedor() + "','" + forneEnd.getLogradouro() + "','" + forneEnd.getBairro() + "','" + forneEnd.getCidade()
                     + "','" + forneEnd.getEstado() + "','" + forneEnd.getPais() + "','" + forneEnd.getCep() + "')";
@@ -44,7 +34,7 @@ public class FornecedorEnderecoDAO {
 
     public static FornecedorEndereco retreave(int pkEndereco) {
         try {
-            Statement stm = BancoDados.createConnection().createStatement();//abrindo conexão no banco
+            Statement stm = BancoDados.createConnection().createStatement();
 
             String sql = "Select * from fornecedores_enderecos  where pk_endereco =" + pkEndereco;
             ResultSet rs = stm.executeQuery(sql);
@@ -67,13 +57,13 @@ public class FornecedorEnderecoDAO {
 
     public static FornecedorEndereco retreaveByFornecedor(int fkEndereco) {
         try {
-            Statement stm = BancoDados.createConnection().createStatement();//abrindo conexão no banco
- 
+            Statement stm = BancoDados.createConnection().createStatement();
+
             String sql = "Select * from fornecedores_enderecos  where fk_fornecedor =" + fkEndereco;
             ResultSet rs = stm.executeQuery(sql);
- 
+
             if (rs.next()) {
- 
+
                 return new FornecedorEndereco(rs.getString("logradouro"), rs.getString("bairro"),
                         rs.getString("cidade"),
                         rs.getString("estado"),
@@ -85,7 +75,7 @@ public class FornecedorEnderecoDAO {
         } catch (SQLException ex) {
             Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
- 
+
         return null;
     }
 

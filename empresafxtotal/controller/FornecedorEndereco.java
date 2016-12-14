@@ -1,28 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package empresafxtotal.controller;
 
-/**
- *
- * @author Matheus
- */
 public class FornecedorEndereco {
+
     private String logradouro;
     private String bairro;
     private String cidade;
     private String estado;
     private String pais;
     private String cep;
-    
+
     private int pk_endereco;
     private int fk_fornecedor;
 
-        FornecedorEndereco() {
-      
+    FornecedorEndereco() {
+
     }
+
     public FornecedorEndereco(String logradouro, String bairro, String cidade, String estado, String pais, String cep) {
         this.logradouro = logradouro;
         this.bairro = bairro;
@@ -43,17 +36,13 @@ public class FornecedorEndereco {
         this.fk_fornecedor = fk_fornecedor;
     }
 
-    
-    
-       
-
     public String getLogradouro() {
         return logradouro;
     }
 
     public void setLogradouro(String logradouro) {
         this.logradouro = logradouro;
-        
+
     }
 
     public String getBairro() {
@@ -116,7 +105,5 @@ public class FornecedorEndereco {
     public String toString() {
         return "FornecedorEndereco{" + "logradouro=" + logradouro + ", bairro=" + bairro + ", cidade=" + cidade + ", estado=" + estado + ", pais=" + pais + ", cep=" + cep + ", pk_endereco=" + pk_endereco + ", fk_fornecedor=" + fk_fornecedor + '}';
     }
-    
-    
-    
+
 }

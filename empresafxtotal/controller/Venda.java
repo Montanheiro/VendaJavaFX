@@ -1,23 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package empresafxtotal.controller;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author dione
- */
 public class Venda {
+
     private int numero;
     private String data;
     private Cliente cliente;
     private Funcionario vendedor;
     private ArrayList<VendaItem> itens;
-    
+
     private int pkVenda;
 
     public Venda() {
@@ -30,7 +22,7 @@ public class Venda {
         this.vendedor = vendedor;
     }
 
-     public Venda(int pkVenda, int numero, String data, Cliente cliente, Funcionario vendedor, ArrayList<VendaItem> itens) {
+    public Venda(int pkVenda, int numero, String data, Cliente cliente, Funcionario vendedor, ArrayList<VendaItem> itens) {
         this.pkVenda = pkVenda;
         this.numero = numero;
         this.data = data;
@@ -38,7 +30,7 @@ public class Venda {
         this.vendedor = vendedor;
         this.itens = itens;
     }
-     
+
     public Venda(int numero, String data, Cliente cliente, Funcionario vendedor, ArrayList<VendaItem> itens) {
         this.numero = numero;
         this.data = data;
@@ -54,9 +46,9 @@ public class Venda {
         this.itens = itens;
         this.pkVenda = pkVenda;
     }
-    
-    public void addItem(VendaItem vi){
-        if (itens ==null) {
+
+    public void addItem(VendaItem vi) {
+        if (itens == null) {
             itens = new ArrayList<>();
         }
         itens.add(vi);
@@ -114,7 +106,5 @@ public class Venda {
     public String toString() {
         return "Venda{" + "numero=" + numero + ", data=" + data + ", cliente=" + cliente + ", vendedor=" + vendedor + ", itens=" + itens + ", pkVenda=" + pkVenda + '}';
     }
-    
-    
-    
+
 }

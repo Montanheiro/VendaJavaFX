@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package empresafxtotal.model;
 
 import empresafxtotal.controller.Cargo;
@@ -24,14 +19,14 @@ public class CargoDAO {
     public static int create(Cargo c) {
         try {
             Statement stm = BancoDados.createConnection().createStatement();
-            //
+
             String sql = "insert into cargos (nome,descricao) values('" + c.getNome() + "','" + c.getDescricao() + "')";
 
             stm.execute(sql, Statement.RETURN_GENERATED_KEYS);
             ResultSet rs = stm.getGeneratedKeys();
-            rs.next();//
-            int key = rs.getInt(1); //retorna o id gravado no banco
-            c.setPk_cargo(key);//guardamos o id salvo no banco na variavel setPk_cliente.
+            rs.next();
+            int key = rs.getInt(1);
+            c.setPk_cargo(key);
 
             return key;
 
@@ -70,8 +65,7 @@ public class CargoDAO {
             String sql = "Select * from cargos";
             ResultSet rs = stm.executeQuery(sql);
             ArrayList<Cargo> cs = new ArrayList<>();
-            while (rs.next())//vamos fazer uma condição para que o next vai andando na tabela ate o final
-            {
+            while (rs.next()) {
 
                 cs.add(new Cargo(
                         rs.getInt("pk_cargo"),
@@ -107,7 +101,7 @@ public class CargoDAO {
             Statement stm
                     = BancoDados.createConnection().
                     createStatement();
-            String sql = "update  cargos set " + "nome='" + c.getNome() + "',descricao='" + c.getDescricao()+ "'where pk_cargo =" + c.getPk_cargo();
+            String sql = "update  cargos set " + "nome='" + c.getNome() + "',descricao='" + c.getDescricao() + "'where pk_cargo =" + c.getPk_cargo();
             System.out.println(sql);
             stm.execute(sql);
         } catch (SQLException ex) {

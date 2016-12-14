@@ -1,19 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package empresafxtotal.controller;
 
-/**
- *
- * @author dione
- */
 public class VendaItem {
+
     private int qtd;
     private Float valorUnitario;
     private Produto produto;
-    
+
     private int fkVenda;
     private int pkVendaItem;
 
@@ -25,7 +17,7 @@ public class VendaItem {
         this.valorUnitario = valorUnitario;
         this.produto = produto;
     }
-    
+
     public VendaItem(int qtd, Float valorUnitario, Produto produto, int fkVenda) {
         this.qtd = qtd;
         this.valorUnitario = valorUnitario;

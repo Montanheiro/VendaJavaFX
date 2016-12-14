@@ -1,40 +1,35 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package empresafxtotal.controller;
 
 import empresafxtotal.model.FuncionarioDAO;
 import java.sql.SQLException;
 
-
 public class Funcionario {
+
     private int pk_funcionario;
-    private int fk_cargo; 
-   
-    
+    private int fk_cargo;
+
     private String nome;
     private String cpf;
-    
+
     private Cargo cargo;
-    
+
     private FuncionarioEndereco funcEndereco;
 
-    
     public Funcionario() {
-    
+
     }
 
     public Funcionario(String nome, String cpf, int fk_cargo) {
         this.nome = nome;
         this.cpf = cpf;
-        this.fk_cargo=fk_cargo;
-    } public Funcionario(int pk_funcionario, String nome, String cpf, int fk_cargo) {
+        this.fk_cargo = fk_cargo;
+    }
+
+    public Funcionario(int pk_funcionario, String nome, String cpf, int fk_cargo) {
         this.nome = nome;
         this.pk_funcionario = pk_funcionario;
         this.cpf = cpf;
-        this.fk_cargo=fk_cargo;
+        this.fk_cargo = fk_cargo;
     }
 
     public Funcionario(int pk_funcionario, int fk_cargo, String nome, String cpf, Cargo cargo, FuncionarioEndereco funcEndereco) {
@@ -46,8 +41,6 @@ public class Funcionario {
         this.funcEndereco = funcEndereco;
     }
 
-  
-
     public Cargo getCargo() {
         return cargo;
     }
@@ -56,19 +49,14 @@ public class Funcionario {
         this.cargo = cargo;
     }
 
-   
     public FuncionarioEndereco getFuncEndereco() {
         return funcEndereco;
     }
 
     public void setFuncEndereco(FuncionarioEndereco funcEndereco) {
         this.funcEndereco = funcEndereco;
-        
-    }
 
- 
-    
-    
+    }
 
     public int getPk_funcionario() {
         return pk_funcionario;
@@ -107,17 +95,13 @@ public class Funcionario {
     public String toString() {
         return nome;
     }
-    public void save() throws SQLException{
+
+    public void save() throws SQLException {
         FuncionarioDAO.create(this);
     }
-    public void update() throws SQLException{
+
+    public void update() throws SQLException {
         FuncionarioDAO.update(this);
     }
-    
-    
-  
-    
-    
-    
-    
+
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package empresafxtotal.model;
 
 import empresafxtotal.controller.Endereco;
@@ -18,11 +13,6 @@ public class EnderecoDAO {
     public static int create(Endereco e) {
         try {
             Statement stm = BancoDados.createConnection().createStatement();
-            //INSERT INTO public.clientes_enderecos(
-            //pk_enderenco, fk_cliente, logradouro, bairro, cidade, estado, 
-            //pais, cep)
-            //VALUES (?, ?, ?, ?, ?, ?, 
-            //      ?, ?);
 
             String sql = "insert into clientes_enderecos (fk_cliente,logradouro,bairro,cidade,estado,pais,cep) values('" + e.getFk_cliente() + "','" + e.getLogradouro() + "','" + e.getBairro() + "','" + e.getCidade()
                     + "','" + e.getEstado() + "','" + e.getPais() + "','" + e.getCep() + "')";
@@ -44,7 +34,7 @@ public class EnderecoDAO {
 
     public static Endereco retreave(int pkEndereco) {
         try {
-            Statement stm = BancoDados.createConnection().createStatement();//abrindo conexão no banco
+            Statement stm = BancoDados.createConnection().createStatement();
 
             String sql = "Select * from clientes_enderecos where pk_enderenco =" + pkEndereco;
             ResultSet rs = stm.executeQuery(sql);
@@ -67,7 +57,7 @@ public class EnderecoDAO {
 
     public static Endereco retreaveByCliente(int fkCliente) {
         try {
-            Statement stm = BancoDados.createConnection().createStatement();//abrindo conexão no banco
+            Statement stm = BancoDados.createConnection().createStatement();
 
             String sql = "Select * from clientes_enderecos where fk_cliente =" + fkCliente;
             ResultSet rs = stm.executeQuery(sql);

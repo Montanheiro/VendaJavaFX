@@ -1,23 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package empresafxtotal.controller;
 
-/**
- *
- * @author Matheus
- */
 public class Produto {
+
     private int pk_produto;
     private String nome;
     private int estoqueMinino;
     private int qtdEstoque;
 
     public Produto() {
-     
+
     }
+
     public Produto(String nome, int estoqueMinino, int qtdEstoque) {
         this.nome = nome;
         this.estoqueMinino = estoqueMinino;
@@ -31,8 +24,6 @@ public class Produto {
         this.qtdEstoque = qtdEstoque;
     }
 
-    
-    
     public int getPk_produto() {
         return pk_produto;
     }
@@ -67,7 +58,7 @@ public class Produto {
 
     @Override
     public String toString() {
-    return nome;
+        return nome;
     }
-    
+
 }
