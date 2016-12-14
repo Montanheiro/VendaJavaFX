@@ -31,6 +31,15 @@ public class Venda {
         this.vendedor = vendedor;
     }
 
+     public Venda(int pkVenda, int numero, Date data, Cliente cliente, Funcionario vendedor, ArrayList<VendaItem> itens) {
+        this.pkVenda = pkVenda;
+        this.numero = numero;
+        this.data = data;
+        this.cliente = cliente;
+        this.vendedor = vendedor;
+        this.itens = itens;
+    }
+     
     public Venda(int numero, Date data, Cliente cliente, Funcionario vendedor, ArrayList<VendaItem> itens) {
         this.numero = numero;
         this.data = data;

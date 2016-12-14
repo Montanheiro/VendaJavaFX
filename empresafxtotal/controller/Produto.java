@@ -69,14 +69,7 @@ public class Produto {
 
     @Override
     public String toString() {
-return nome;
-    }
-    
-    public void save(){
-        ProdutoDAO.create(this);
-    }
-    public void update(){
-        ProdutoDAO.update(this);
+    return nome;
     }
     
 }

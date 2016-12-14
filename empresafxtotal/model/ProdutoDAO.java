@@ -11,8 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class ProdutoDAO {
     
@@ -20,8 +18,7 @@ public class ProdutoDAO {
         
     }
     
-    public static int create(Produto produto) {
-        try {
+    public static int create(Produto produto) throws SQLException {
             Statement stm = BancoDados.createConnection().createStatement();
             //
             String sql = "insert into produtos (nome,estoque_minimo, qtd_estoque) values('" + produto.getNome() + "','" + produto.getEstoqueMinino() + "','"
@@ -34,16 +31,10 @@ public class ProdutoDAO {
             produto.setPk_produto(key);//guardamos o id salvo no banco na variavel setPk_cliente.
             
             return key;
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        return 0;
+  
     }
     
-    public static Produto retreave(int pk_produto) {
-        try {
+    public static Produto retreave(int pk_produto) throws SQLException {
             Statement stm
                     = BancoDados.createConnection().
                     createStatement();
@@ -54,31 +45,19 @@ public class ProdutoDAO {
             rs.next();
             
             return new Produto(rs.getInt("pk_produto"), rs.getString("nome"), rs.getInt("estoque_minimo"), rs.getInt("qtd_estoque"));
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        return null;
     }
     
-    public static void delete(Produto p) {
-        
-        try {
+    public static void delete(Produto p) throws SQLException {
             Statement stm
                     = BancoDados.createConnection().
                     createStatement();
             String sql = "delete from produtos where pk_enderenco=" + p.getPk_produto();
             
             stm.execute(sql);
-        } catch (SQLException ex) {
-            Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
     }
     
-    public static ArrayList<Produto> retreaveAll() {
-        try {
+    public static ArrayList<Produto> retreaveAll() throws SQLException {
             Statement stm
                     = BancoDados.createConnection().
                     createStatement();
@@ -96,15 +75,9 @@ public class ProdutoDAO {
             }
             
             return cs;
-        } catch (SQLException ex) {
-            Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        return null;
     }
     
-    public static void update(Produto p) {
-        try {
+    public static void update(Produto p) throws SQLException {
             Statement stm
                     = BancoDados.createConnection().
                     createStatement();
@@ -112,9 +85,6 @@ public class ProdutoDAO {
                     + "',qtd_estoque='" + p.getQtdEstoque() + "'where pk_produto =" + p.getPk_produto();
             
             stm.execute(sql);
-        } catch (SQLException ex) {
-            Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
     }
     
