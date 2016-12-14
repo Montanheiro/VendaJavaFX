@@ -78,7 +78,7 @@ public class EnderecoDAO {
                     rs.getString("estado"),
                     rs.getString("pais"),
                     rs.getString("cep"),
-                    rs.getInt("pk_enderenco"),
+                    rs.getInt("pk_endereco"),
                     rs.getInt("fk_cliente"));
 
         } catch (SQLException ex) {

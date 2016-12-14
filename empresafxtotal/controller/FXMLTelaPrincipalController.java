@@ -32,23 +32,23 @@ public class FXMLTelaPrincipalController implements Initializable {
         anchorPaneTelas.getChildren().setAll(a);
     }
     public void abraTelaMantemFornecedor() throws IOException{
-        AnchorPane a = FXMLLoader.load(getClass().getResource("/empresafxtotal/view/FXMLMantemFornecedor.fxml"));
-        anchorPaneTelas.getChildren().setAll(a);
+        AnchorPane b = FXMLLoader.load(getClass().getResource("/empresafxtotal/view/FXMLMantemFornecedor.fxml"));
+        anchorPaneTelas.getChildren().setAll(b);
     }
     public void abraTelaMantemCargo() throws IOException{
-        AnchorPane a = FXMLLoader.load(getClass().getResource("/empresafxtotal/view/FXMLMantemCargo.fxml"));
-        anchorPaneTelas.getChildren().setAll(a);
+        AnchorPane c = FXMLLoader.load(getClass().getResource("/empresafxtotal/view/FXMLMantemCargo.fxml"));
+        anchorPaneTelas.getChildren().setAll(c);
     } 
     public void abraTelaMantemFuncionario() throws IOException{
-        AnchorPane a = FXMLLoader.load(getClass().getResource("/empresafxtotal/view/FXMLMantemFuncionario.fxml"));
-        anchorPaneTelas.getChildren().setAll(a);
+        AnchorPane d = FXMLLoader.load(getClass().getResource("/empresafxtotal/view/FXMLMantemFuncionario.fxml"));
+        anchorPaneTelas.getChildren().setAll(d);
     }
     public void abraTelaMantemProduto() throws IOException{
-        AnchorPane a = FXMLLoader.load(getClass().getResource("/empresafxtotal/view/FXMLMantemProduto.fxml"));
-        anchorPaneTelas.getChildren().setAll(a);
+        AnchorPane e = FXMLLoader.load(getClass().getResource("/empresafxtotal/view/FXMLMantemProduto.fxml"));
+        anchorPaneTelas.getChildren().setAll(e);
     }
     public void abraTelaMantemVenda() throws IOException{
-        AnchorPane a = FXMLLoader.load(getClass().getResource("/empresafxtotal/view/FXMLMantemVenda.fxml"));
-        anchorPaneTelas.getChildren().setAll(a);
+        AnchorPane f = FXMLLoader.load(getClass().getResource("/empresafxtotal/view/FXMLMantemVenda.fxml"));
+        anchorPaneTelas.getChildren().setAll(f);
     }
 }

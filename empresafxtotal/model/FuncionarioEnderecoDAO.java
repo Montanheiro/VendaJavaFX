@@ -28,7 +28,7 @@ public class FuncionarioEnderecoDAO {
       //      ?, ?);
       
       
-            String sql = "insert into funcionarios_enderecos (fk_funcionario,logadouro,bairro,cidade,estado,pais,cep) values('"+funcEnd.getFk_funcionario()+"','"+funcEnd.getLogradouro()+"','"+funcEnd.getBairro()+"','"+funcEnd.getCidade()+
+            String sql = "insert into funcionarios_enderecos (fk_funcionario,logradouro,bairro,cidade,estado,pais,cep) values('"+funcEnd.getFk_funcionario()+"','"+funcEnd.getLogradouro()+"','"+funcEnd.getBairro()+"','"+funcEnd.getCidade()+
                     "','"+funcEnd.getEstado()+"','"+funcEnd.getPais()+"','"+funcEnd.getCep()+"')";
             
             stm.execute(sql, Statement.RETURN_GENERATED_KEYS);
@@ -55,7 +55,7 @@ public class FuncionarioEnderecoDAO {
             ResultSet rs = stm.executeQuery(sql);
 
             if (rs.next()) {
-                return new FuncionarioEndereco(rs.getString("logadouro"), rs.getString("bairro"),
+                return new FuncionarioEndereco(rs.getString("logradouro"), rs.getString("bairro"),
                         rs.getString("cidade"),
                         rs.getString("estado"),
                         rs.getString("pais"),
@@ -79,7 +79,7 @@ public class FuncionarioEnderecoDAO {
 
             if (rs.next()) {
 
-                return new FuncionarioEndereco(rs.getString("logadouro"), rs.getString("bairro"),
+                return new FuncionarioEndereco(rs.getString("logradouro"), rs.getString("bairro"),
                         rs.getString("cidade"),
                         rs.getString("estado"),
                         rs.getString("pais"),
@@ -106,7 +106,7 @@ public class FuncionarioEnderecoDAO {
 
             while (rs.next()) {
                 e.add(new FuncionarioEndereco(
-                        rs.getString("logadouro"),
+                        rs.getString("logradouro"),
                         rs.getString("bairro"),
                         rs.getString("cidade"),
                         rs.getString("estado"),
@@ -144,7 +144,7 @@ public class FuncionarioEnderecoDAO {
             Statement stm
                     = BancoDados.createConnection().
                     createStatement();
-            String sql = "update  funcionarios_enderecos set " + "logadouro='" + fe.getLogradouro()
+            String sql = "update  funcionarios_enderecos set " + "logradouro='" + fe.getLogradouro()
                     + "',bairro='" + fe.getBairro() + "',cidade='" + fe.getCidade() + "',estado='" + fe.getEstado() + "',pais='" + fe.getPais()
                     + "',cep='" + fe.getCep() + "'where pk_endereco=" + fe.getPk_endereco();
 

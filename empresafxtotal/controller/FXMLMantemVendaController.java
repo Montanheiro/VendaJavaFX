@@ -1,20 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package empresafxtotal.controller;
 
-import javafx.event.ActionEvent;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-/**
- *
- * @author lucas
- */
-public class FXMLMantemVendaController {
+
+public class FXMLMantemVendaController implements Initializable {
+
     @FXML
     private AnchorPane anchorPane;
 
@@ -33,18 +28,28 @@ public class FXMLMantemVendaController {
     @FXML
     private ComboBox<?> comboBoxCliente;
 
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        System.out.println("ABRIU CARARIO");
+        
+        
+        
+    }
+    
     @FXML
-    void lancar(ActionEvent event) {
-        System.out.println("Lançou");
+    void lancar() {
+        System.out.println("lançou");
     }
 
     @FXML
-    void salvar(ActionEvent event) {
-        System.out.println("Salvou");
+    void salvar() {
+        System.out.println("salvou");
     }
 
     @FXML
-    void limpaTela(ActionEvent event) {
-        System.out.println("Limpou");
+    void limpaTela() {
+        System.out.println("limpou");
     }
+
 }

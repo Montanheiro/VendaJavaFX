@@ -14,14 +14,14 @@
    <children>
       <MenuBar>
          <menus>
-            <Menu mnemonicParsing="false" text="Cadastro">
+            <Menu mnemonicParsing="false" text="Modulos">
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#abraTelaMantemCliente" text="Clientes" />
-                  <MenuItem mnemonicParsing="false" onAction="#abraTelaMantemFornecedor" text="Fornecedores" />
-                  <MenuItem mnemonicParsing="false" onAction="#abraTelaMantemCargo" text="Cargos" />
-                  <MenuItem mnemonicParsing="false" onAction="#abraTelaMantemFuncionario" text="Funcionarios" />
+                <MenuItem mnemonicParsing="false" onAction="#abraTelaMantemCliente" text="Clientes" visible="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#abraTelaMantemFornecedor" text="Fornecedores" visible="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#abraTelaMantemCargo" text="Cargos" visible="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#abraTelaMantemFuncionario" text="Funcionarios" visible="false" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" onAction="#abraTelaMantemProduto" text="Produtos" />
+                  <MenuItem mnemonicParsing="false" onAction="#abraTelaMantemProduto" text="Produtos" visible="false" />
                   <MenuItem mnemonicParsing="false" onAction="#abraTelaMantemVenda" text="Vendas" />
               </items>
             </Menu>

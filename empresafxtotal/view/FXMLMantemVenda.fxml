@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="415.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="empresafxtotal.controller.FXMLMantemClienteController">
+<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="415.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="empresafxtotal.controller.FXMLMantemVendaController">
    <children>
       <Accordion prefHeight="358.0" prefWidth="623.0" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <panes>
@@ -23,7 +23,6 @@
                   <AnchorPane prefHeight="320.0" prefWidth="621.0">
                      <children>
                         <ComboBox fx:id="comboBoxVendedor" layoutX="6.0" layoutY="11.0" prefHeight="25.0" prefWidth="291.0" promptText="Vendedor" />
-                        <Button layoutX="533.0" layoutY="44.0" mnemonicParsing="false" onAction="#lancar" text="Lançar" />
                         <ComboBox fx:id="comboBoxCliente" layoutX="306.0" layoutY="11.0" prefHeight="25.0" prefWidth="288.0" promptText="Cliente" />
                         <ComboBox fx:id="comboBoxProdutos" layoutX="6.0" layoutY="44.0" prefHeight="25.0" prefWidth="223.0" promptText="Produtos" />
                         <TextField fx:id="textFieldQuantidade" layoutX="274.0" layoutY="44.0" prefHeight="25.0" prefWidth="75.0" />
@@ -37,6 +36,7 @@
                         </TableView>
                         <TextField fx:id="textFieldPreco" layoutX="404.0" layoutY="44.0" prefHeight="25.0" prefWidth="120.0" />
                         <Text layoutX="365.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preço" />
+                        <Button layoutX="536.0" layoutY="44.0" mnemonicParsing="false" onAction="#lancar" text="Lançar" />
                      </children>
                   </AnchorPane>
                </content>

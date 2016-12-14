@@ -56,7 +56,7 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
         
-        stage.setTitle("EmpresaFX-TOTAL 1.0");
+        stage.setTitle("EmpresaFX-TOTAL 1.0 - LUCAS E RALDNEY");
         Image icone = new Image(getClass().getResourceAsStream("resources/icon.png"));
         stage.getIcons().add(icone);
     }
